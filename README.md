@@ -17,6 +17,24 @@ ELOHIM (Hebrew for "God") is designed as a professional portfolio project demons
 - **Adaptive Design**: Responsive layouts that optimize for various screen sizes, from compact phones to tablets.
 - **Accessibility**: Optimized touch targets, content descriptions, and semantic UI for screen readers.
 
+## How to Run
+
+Follow these simple steps to get the Elohim app running on your device:
+
+1. **Open in Android Studio**: Open the `Elohim` project folder in Android Studio Ladybug (2024.2.1) or newer.
+2. **Java Requirement**: Ensure you have **JDK 17** or higher configured in Android Studio (Settings > Build, Execution, Deployment > Build Tools > Gradle > Gradle JDK).
+3. **Wait for Sync**: Wait for Gradle synchronization to complete. This requires an active internet connection to download the Gradle distribution and dependencies.
+4. **Device Setup**: Open **Device Manager** and start an Android emulator, or connect a physical Android phone with USB Debugging enabled.
+5. **Run the App**:
+    - Select the `app` run configuration in the toolbar.
+    - Select your emulator or connected device.
+    - Click the green **Run (▶)** button.
+
+## Troubleshooting
+
+- **Gradle Timeout**: If you experience connection timeouts during sync, ensure your internet connection is stable. The project is configured with increased timeouts in `gradle.properties` to help with slow networks.
+- **Missing Gradle Wrapper**: If Android Studio warns about a missing Gradle wrapper, click the prompt to "Fix Gradle wrapper and re-import project".
+
 ## Technology Stack
 
 - **Kotlin**: Primary language for robust and expressive code.
