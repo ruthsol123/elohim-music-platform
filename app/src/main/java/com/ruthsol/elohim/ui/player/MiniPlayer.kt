@@ -5,8 +5,11 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Pause
 import androidx.compose.material.icons.filled.PlayArrow
+import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.graphics.vector.path
+import androidx.compose.ui.graphics.SolidColor
+import androidx.compose.ui.graphics.Color
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
@@ -20,6 +23,27 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import coil.compose.AsyncImage
+
+private val PauseIcon: ImageVector = ImageVector.Builder(
+    name = "Custom.Pause",
+    defaultWidth = 24.dp,
+    defaultHeight = 24.dp,
+    viewportWidth = 24f,
+    viewportHeight = 24f
+).path(fill = SolidColor(Color.Black)) {
+    moveTo(6f, 19f)
+    horizontalLineTo(10f)
+    verticalLineTo(5f)
+    horizontalLineTo(6f)
+    verticalLineTo(19f)
+    close()
+    moveTo(14f, 5f)
+    verticalLineTo(19f)
+    horizontalLineTo(18f)
+    verticalLineTo(5f)
+    horizontalLineTo(14f)
+    close()
+}.build()
 
 @Composable
 fun MiniPlayer(
@@ -73,7 +97,7 @@ fun MiniPlayer(
             }
             IconButton(onClick = { viewModel.togglePlayPause() }) {
                 Icon(
-                    imageVector = if (isPlaying) Icons.Default.Pause else Icons.Default.PlayArrow,
+                    imageVector = if (isPlaying) PauseIcon else Icons.Filled.PlayArrow,
                     contentDescription = if (isPlaying) "Pause" else "Play"
                 )
             }

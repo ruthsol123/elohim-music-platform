@@ -4,6 +4,10 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.*
+import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.graphics.vector.path
+import androidx.compose.ui.graphics.SolidColor
+import androidx.compose.ui.graphics.Color
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
@@ -18,6 +22,27 @@ import androidx.navigation.NavController
 import coil.compose.AsyncImage
 import com.ruthsol.elohim.ui.lyrics.LyricsView
 import com.ruthsol.elohim.utils.formatTime
+
+private val PauseIcon: ImageVector = ImageVector.Builder(
+    name = "Custom.Pause",
+    defaultWidth = 24.dp,
+    defaultHeight = 24.dp,
+    viewportWidth = 24f,
+    viewportHeight = 24f
+).path(fill = SolidColor(Color.Black)) {
+    moveTo(6f, 19f)
+    horizontalLineTo(10f)
+    verticalLineTo(5f)
+    horizontalLineTo(6f)
+    verticalLineTo(19f)
+    close()
+    moveTo(14f, 5f)
+    verticalLineTo(19f)
+    horizontalLineTo(18f)
+    verticalLineTo(5f)
+    horizontalLineTo(14f)
+    close()
+}.build()
 
 @Composable
 fun PlayerScreen(
@@ -116,7 +141,7 @@ fun PlayerScreen(
                 colors = IconButtonDefaults.filledIconButtonColors(containerColor = MaterialTheme.colorScheme.primary)
             ) {
                 Icon(
-                    imageVector = if (isPlaying) Icons.Default.Pause else Icons.Default.PlayArrow,
+                    imageVector = if (isPlaying) PauseIcon else Icons.Default.PlayArrow,
                     contentDescription = if (isPlaying) "Pause" else "Play",
                     modifier = Modifier.size(48.dp)
                 )
